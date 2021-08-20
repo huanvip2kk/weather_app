@@ -83,7 +83,7 @@ class SearchScreen extends StatelessWidget {
                           children: [
                             Text(state.message),
                             commonElevatedButton(
-                              text: 'Reload',
+                              text: S.current.reload,
                               buttonColor: AppColors.kPrimaryColor,
                               onPressed: () {
                                 context.read<SearchBloc>().add(

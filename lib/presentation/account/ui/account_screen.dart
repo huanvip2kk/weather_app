@@ -102,7 +102,8 @@ class _AccountScreenState extends State<AccountScreen> {
                                       content: SingleChildScrollView(
                                         child: Column(
                                           mainAxisSize: MainAxisSize.min,
-                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
                                           children: [
                                             Avatar(
                                               onTap: () {
@@ -111,34 +112,40 @@ class _AccountScreenState extends State<AccountScreen> {
                                                   builder: (builder) => Wrap(
                                                     children: [
                                                       ListTile(
-                                                        leading: Icon(Icons.image,
-                                                            color:
-                                                            AppColors.kPrimaryColor),
-                                                        title: const Text(
-                                                          'Gallery',
+                                                        leading: Icon(
+                                                            Icons.image,
+                                                            color: AppColors
+                                                                .kPrimaryColor),
+                                                        title: Text(
+                                                          S.current.gallery,
                                                         ),
                                                         onTap: () async {
-                                                          pickedFile =
-                                                          (await picker.pickImage(
-                                                              source: ImageSource
-                                                                  .gallery))!;
+                                                          pickedFile = (await picker
+                                                              .pickImage(
+                                                                  source: ImageSource
+                                                                      .gallery))!;
 
-                                                          Navigator.of(context).pop();
+                                                          Navigator.of(context)
+                                                              .pop();
                                                         },
                                                       ),
                                                       ListTile(
                                                         leading: Icon(
                                                           Icons.camera_alt,
-                                                          color: AppColors.kPrimaryColor,
+                                                          color: AppColors
+                                                              .kPrimaryColor,
                                                         ),
-                                                        title: const Text('Camera'),
+                                                        title: Text(
+                                                          S.current.camera,
+                                                        ),
                                                         onTap: () async {
-                                                          pickedFile =
-                                                          (await picker.pickImage(
-                                                              source: ImageSource
-                                                                  .camera))!;
+                                                          pickedFile = (await picker
+                                                              .pickImage(
+                                                                  source: ImageSource
+                                                                      .camera))!;
 
-                                                          Navigator.of(context).pop();
+                                                          Navigator.of(context)
+                                                              .pop();
                                                         },
                                                       )
                                                     ],
@@ -151,7 +158,8 @@ class _AccountScreenState extends State<AccountScreen> {
                                             sizedBox10h(),
                                             Text(
                                               S.current.changeProfile,
-                                              style: AppTextStyle.fontSize20.copyWith(
+                                              style: AppTextStyle.fontSize20
+                                                  .copyWith(
                                                 fontWeight: FontWeight.w500,
                                               ),
                                             ),
@@ -160,7 +168,8 @@ class _AccountScreenState extends State<AccountScreen> {
                                               controller: _nameController,
                                               labelText: S.current.userName,
                                               validator: (value) {
-                                                if (value != null && value.isNotEmpty) {
+                                                if (value != null &&
+                                                    value.isNotEmpty) {
                                                   return null;
                                                 }
                                                 return S.current.cannotEmpty;
@@ -168,19 +177,20 @@ class _AccountScreenState extends State<AccountScreen> {
                                               prefixIcon: const Icon(
                                                 Icons.person,
                                               ),
-                                              autovalidateMode:
-                                              AutovalidateMode.onUserInteraction,
+                                              autovalidateMode: AutovalidateMode
+                                                  .onUserInteraction,
                                             ),
-
                                             sizedBox10h(),
                                             Row(
-                                              mainAxisAlignment: MainAxisAlignment.end,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.end,
                                               children: [
                                                 SizedBox(
                                                   width: 100.w,
                                                   child: commonTextButton(
                                                     onPressed: () {
-                                                      Navigator.of(context).pop();
+                                                      Navigator.of(context)
+                                                          .pop();
                                                     },
                                                     text: S.current.cancel,
                                                   ),
@@ -188,19 +198,26 @@ class _AccountScreenState extends State<AccountScreen> {
                                                 SizedBox(
                                                   width: 100.w,
                                                   child: commonElevatedButton(
-                                                    buttonColor: AppColors.kPrimaryColor,
+                                                    buttonColor:
+                                                        AppColors.kPrimaryColor,
                                                     onPressed: () {
-                                                      bContext.read<AccountBloc>().add(
-                                                        AccountChangeEvent(
-                                                          userName:
-                                                          _nameController.text,
-                                                          email:
-                                                          _emailController.text,
-                                                          photoURL: pickedFile,
-                                                        ),
-                                                      );
+                                                      bContext
+                                                          .read<AccountBloc>()
+                                                          .add(
+                                                            AccountChangeEvent(
+                                                              userName:
+                                                                  _nameController
+                                                                      .text,
+                                                              email:
+                                                                  _emailController
+                                                                      .text,
+                                                              photoURL:
+                                                                  pickedFile,
+                                                            ),
+                                                          );
 
-                                                      Navigator.of(context).pop();
+                                                      Navigator.of(context)
+                                                          .pop();
                                                     },
                                                     text: S.current.ok,
                                                   ),
@@ -299,7 +316,6 @@ class _AccountScreenState extends State<AccountScreen> {
               ),
             ),
             sizedBox10h(),
-
             Padding(
               padding: const EdgeInsets.symmetric(
                 horizontal: 32,
@@ -329,8 +345,6 @@ class _AccountScreenState extends State<AccountScreen> {
           ],
         ),
       );
-
-
 }
 
 class Avatar extends StatelessWidget {

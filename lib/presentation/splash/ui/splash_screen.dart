@@ -17,7 +17,9 @@ class _SplashScreenState extends State<SplashScreen> {
     Timer(
       const Duration(seconds: 3),
       () => Navigator.pushReplacementNamed(
-          context, RouteDefine.mainScreen.name),
+        context,
+        RouteDefine.mainScreen.name,
+      ),
     );
   }
 

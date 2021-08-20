@@ -19,7 +19,6 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
           location: event.cityName,
         );
         final List<LocationModel> locationModel = response;
-        print(response);
 
         // final response = await Dio().get(
         //     'https://www.metaweather.com/api/location/search/?query='+event.cityName,

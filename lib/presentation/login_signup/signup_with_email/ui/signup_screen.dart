@@ -18,8 +18,6 @@ class SignupScreen extends StatefulWidget {
 }
 
 class _SignupScreenState extends State<SignupScreen> {
-
-
   @override
   Widget build(context) => BlocConsumer<SignupBloc, SignupState>(
         builder: (context, state) {
