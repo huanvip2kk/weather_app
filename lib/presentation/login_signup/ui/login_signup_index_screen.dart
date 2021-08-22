@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../generated/l10n.dart';
-import '../../common/method/main_multi_bloc_provider.dart';
 import '../../common/method/toast.dart';
 import '../../common/widget/loading_widget.dart';
+import '../../home/ui/home_screen.dart';
 import '../bloc/index_bloc.dart';
 import 'widget/index_widget.dart';
 
@@ -43,7 +43,7 @@ class _LoginSignupIndexScreenState extends State<LoginSignupIndexScreen> {
             if (state is IndexLoadingState) {
               return loading();
             } else if (state is IndexLoginSuccessState) {
-              return mainMultiBlocProvider();
+              return const HomeScreen();
             } else if (state is IndexFailureState) {
               return loginSignupIndexScreen(context);
             }

@@ -9,6 +9,7 @@ import '../../../generated/l10n.dart';
 import '../../common/method/common_button.dart';
 import '../../common/method/sized_box_10h.dart';
 import '../../common/method/snack_bar.dart';
+import '../../common/widget/current_column_widget.dart';
 import '../../common/widget/header_curved_container.dart';
 import '../../common/widget/loading_widget.dart';
 import '../bloc/home_bloc.dart';
@@ -30,6 +31,8 @@ class _HomeScreenState extends State<HomeScreen> {
   List languages = ['English', 'Tiếng Việt'];
 
   String lang = 'English';
+
+  bool isC = true;
 
   @override
   Widget build(BuildContext context) => Scaffold(
@@ -145,12 +148,19 @@ class _HomeScreenState extends State<HomeScreen> {
                     style: AppTextStyle.fontSize14.copyWith(),
                   ),
                   const Spacer(),
-                  Text(
-                    '$currentTemp\u2103',
-                    style: AppTextStyle.fontSize40.copyWith(
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
+                  isC
+                      ? Text(
+                          '$currentTemp\u2103',
+                          style: AppTextStyle.fontSize40.copyWith(
+                            fontWeight: FontWeight.w500,
+                          ),
+                        )
+                      : Text(
+                          '$currentTemp\u2109',
+                          style: AppTextStyle.fontSize40.copyWith(
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
                   sizedBox10h(),
                   Row(
                     children: [
@@ -199,6 +209,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 '${S.current.choosed}: C',
                               ),
                             );
+                            isC = true;
                           } else {
                             context.read<HomeBloc>().add(
                                   HomeLoadEvent(units: 'imperial'),
@@ -209,6 +220,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                 '${S.current.choosed}: F',
                               ),
                             );
+
+                            isC = false;
                           }
                         });
 
@@ -278,17 +291,23 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
-                        CurrentColumnWidget(
-                          title: S.current.wind,
-                          value: wind.toString(),
-                          unit: 'Km/h',
-                        ),
-                        CurrentColumnWidget(
+                        isC
+                            ? currentColumnWidget(
+                                title: S.current.wind,
+                                value: wind.toString(),
+                                unit: 'Km/h',
+                              )
+                            : currentColumnWidget(
+                                title: S.current.wind,
+                                value: wind.toString(),
+                                unit: 'MPH',
+                              ),
+                        currentColumnWidget(
                           value: pressure.toString(),
                           title: S.current.pressure,
                           unit: 'Pa',
                         ),
-                        CurrentColumnWidget(
+                        currentColumnWidget(
                           value: humidity.toString(),
                           title: S.current.humidity,
                           unit: '%',
@@ -299,37 +318,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 ],
               ),
             ),
-          ),
-        ],
-      );
-}
-
-class CurrentColumnWidget extends StatelessWidget {
-  const CurrentColumnWidget({
-    required this.value,
-    required this.title,
-    required this.unit,
-    Key? key,
-  }) : super(key: key);
-
-  final String title, value, unit;
-
-  @override
-  Widget build(BuildContext context) => Column(
-        children: [
-          Text(
-            title,
-          ),
-          sizedBox10h(),
-          Text(
-            value,
-            style: AppTextStyle.fontSize14.copyWith(
-              fontWeight: FontWeight.w500,
-            ),
-          ),
-          sizedBox10h(),
-          Text(
-            unit,
           ),
         ],
       );

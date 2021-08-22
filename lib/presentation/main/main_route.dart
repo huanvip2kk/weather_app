@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import '../common/method/main_multi_bloc_provider.dart';
-
+import 'ui/main_bottom_navigation_bar.dart';
 
 class MainScreenRoute {
-  static Widget get route => mainMultiBlocProvider();
+  static Widget get route => const MainScreen();
 }

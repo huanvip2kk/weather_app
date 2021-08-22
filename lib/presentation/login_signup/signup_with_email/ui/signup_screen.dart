@@ -5,7 +5,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../generated/l10n.dart';
 import '../../../common/method/toast.dart';
 import '../../../common/widget/loading_widget.dart';
-import '../../login_with_email/login_bloc/login_bloc.dart';
 import '../../login_with_email/ui/login_screen.dart';
 import '../signup_bloc/signup_bloc.dart';
 import 'signup_widget/signup_widget.dart';
@@ -24,10 +23,7 @@ class _SignupScreenState extends State<SignupScreen> {
           if (state is SignupLoadingState) {
             return loading();
           } else if (state is SignupSuccessState) {
-            return BlocProvider(
-              create: (context) => LoginBloc(),
-              child: const LoginScreen(),
-            );
+            return const LoginScreen();
           } else if (state is SignupFailureState) {
             return const SignupWidget();
           }

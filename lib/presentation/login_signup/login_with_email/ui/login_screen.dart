@@ -3,9 +3,9 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../generated/l10n.dart';
-import '../../../common/method/main_multi_bloc_provider.dart';
 import '../../../common/method/toast.dart';
 import '../../../common/widget/loading_widget.dart';
+import '../../../main/ui/main_bottom_navigation_bar.dart';
 import '../login_bloc/login_bloc.dart';
 import 'login_widget/login_widget.dart';
 
@@ -23,7 +23,7 @@ class _LoginScreenState extends State<LoginScreen> {
           if (state is LoginLoadingState) {
             return loading();
           } else if (state is LoginSuccessState) {
-            return mainMultiBlocProvider();
+            return const MainScreen();
           } else if (state is LoginFailureState) {
             return const LoginWidget();
           }
