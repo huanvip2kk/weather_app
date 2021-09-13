@@ -19,6 +19,7 @@ bool isAdmin = true;
 bool isActive = true;
 bool isActivated = true;
 
- String en = S.current.english;
-final String vi = S.current.tiengViet;
-final List languages = [en, vi];
+String en = S.current.english;
+String vi = S.current.tiengViet;
+List languages = [S.current.english, S.current.tiengViet];
+

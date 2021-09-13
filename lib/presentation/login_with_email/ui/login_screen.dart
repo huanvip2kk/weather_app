@@ -30,7 +30,7 @@ class LoginScreen extends StatelessWidget {
           case LoginFailureState:
             state as LoginFailureState;
             toast(
-              msg: '${S.current.loginFail}: ${state.message}',
+              msg: S.current.loginFail(state.message),
             );
             break;
         }

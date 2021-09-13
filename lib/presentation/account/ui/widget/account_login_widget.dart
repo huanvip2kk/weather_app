@@ -181,7 +181,9 @@ class _AccountLoginWidgetState extends State<AccountLoginWidget> {
                       text: S.current.favoritesList,
                       onPressed: () {
                         Navigator.pushNamed(
-                            context, RouteDefine.favoritesListScreen.name);
+                          context,
+                          RouteDefine.favoritesListScreen.name,
+                        );
                       }),
                 ),
                 SizedBox(

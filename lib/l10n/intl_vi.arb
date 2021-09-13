@@ -21,7 +21,7 @@
   "photo": "Hình ảnh",
   "loginSuccess": "Đăng nhập thành công",
   "signupSuccess": "Đăng ký thành công, xin hãy xác thực email trước khi đăng nhập",
-  "loginFail": "Đăng nhập thất bại",
+  "loginFail": "Đăng nhập thất bại: {error}",
   "signupFail": "Đăng ký thất bại: {error}",
   "userNotFound": "Người dùng không tồn tại",
   "wrongPassword": "Sai mật khẩu",
@@ -91,5 +91,6 @@
   "userNotActive": "Người dùng chưa kích hoạt",
   "addUser":"Thêm người dùng",
   "metric": "Hệ mét",
-  "imperial": "Hệ anh"
+  "imperial": "Hệ anh",
+  "fail": "Lỗi: {error}"
 }

@@ -21,9 +21,13 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m0(text) => "Đã chọn ${text}";
 
-  static String m1(userName) => "Xin chào ${userName}";
+  static String m1(error) => "Lỗi: ${error}";
 
-  static String m2(error) => "Đăng ký thất bại: ${error}";
+  static String m2(userName) => "Xin chào ${userName}";
+
+  static String m3(error) => "Đăng nhập thất bại: ${error}";
+
+  static String m4(error) => "Đăng ký thất bại: ${error}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -75,11 +79,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "emailAlreadyInUse":
             MessageLookupByLibrary.simpleMessage("Email đã được đăng ký"),
         "english": MessageLookupByLibrary.simpleMessage("Tiếng Anh"),
+        "fail": m1,
         "favoritesList":
             MessageLookupByLibrary.simpleMessage("Danh mục ưa thích"),
         "forgotPassword": MessageLookupByLibrary.simpleMessage("Quên mật khẩu"),
         "gallery": MessageLookupByLibrary.simpleMessage("Thư viện"),
-        "hello": m1,
+        "hello": m2,
         "home": MessageLookupByLibrary.simpleMessage("Trang chủ"),
         "humidity": MessageLookupByLibrary.simpleMessage("Độ ẩm"),
         "imperial": MessageLookupByLibrary.simpleMessage("Hệ anh"),
@@ -89,7 +94,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Số điện thoại không hợp lệ"),
         "loading": MessageLookupByLibrary.simpleMessage("Đang tải..."),
         "login": MessageLookupByLibrary.simpleMessage("Đăng nhập"),
-        "loginFail": MessageLookupByLibrary.simpleMessage("Đăng nhập thất bại"),
+        "loginFail": m3,
         "loginNow": MessageLookupByLibrary.simpleMessage("Đăng nhập ngay"),
         "loginQuote": MessageLookupByLibrary.simpleMessage(
             "Đăng nhập với tài khoản email của bạn"),
@@ -126,7 +131,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "setting": MessageLookupByLibrary.simpleMessage("Cài đặt"),
         "signOut": MessageLookupByLibrary.simpleMessage("Đăng xuất"),
         "signUp": MessageLookupByLibrary.simpleMessage("Đăng ký"),
-        "signupFail": m2,
+        "signupFail": m4,
         "signupQuote":
             MessageLookupByLibrary.simpleMessage("Tạo tài khoản email"),
         "signupSuccess": MessageLookupByLibrary.simpleMessage(

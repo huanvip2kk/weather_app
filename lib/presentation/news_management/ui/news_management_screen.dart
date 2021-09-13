@@ -45,7 +45,7 @@ class _NewsManagementScreenState extends State<NewsManagementScreen> {
           } else if (state is NewsManagementFailureState) {
             return Center(
               child: Text(
-                'Fail: ${state.message}',
+                S.current.fail(state.message),
               ),
             );
           }

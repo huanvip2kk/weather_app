@@ -21,7 +21,7 @@
   "photo": "Photo",
   "loginSuccess": "Login success",
   "signupSuccess": "Signup success, please verify the email",
-  "loginFail": "Login fail",
+  "loginFail": "Login fail: {error}",
   "signupFail": "Signup fail: {error}",
   "userNotFound": "User not found",
   "wrongPassword": "Wrong password",
@@ -91,5 +91,6 @@
   "userNotActive": "User not active",
   "addUser":"Add user",
   "metric": "Metric",
-  "imperial": "Imperial"
+  "imperial": "Imperial",
+  "fail": "Fail: {error}"
 }

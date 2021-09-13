@@ -270,13 +270,13 @@ class S {
     );
   }
 
-  /// `Login fail`
-  String get loginFail {
+  /// `Login fail: {error}`
+  String loginFail(Object error) {
     return Intl.message(
-      'Login fail',
+      'Login fail: $error',
       name: 'loginFail',
       desc: '',
-      args: [],
+      args: [error],
     );
   }
 
@@ -977,6 +977,16 @@ class S {
       name: 'imperial',
       desc: '',
       args: [],
+    );
+  }
+
+  /// `Fail: {error}`
+  String fail(Object error) {
+    return Intl.message(
+      'Fail: $error',
+      name: 'fail',
+      desc: '',
+      args: [error],
     );
   }
 }

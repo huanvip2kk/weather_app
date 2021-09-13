@@ -41,7 +41,7 @@ class FavoritesListScreen extends StatelessWidget {
           } else if (state is FavoritesListFailureState) {
             return Center(
               child: Text(
-                'Fail: ${state.message}',
+                S.current.fail(state.message),
               ),
             );
           }

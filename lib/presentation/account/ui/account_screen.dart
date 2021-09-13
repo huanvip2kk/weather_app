@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../../generated/l10n.dart';
 
 import '../../common/widget/loading_widget.dart';
 import '../bloc/account_bloc.dart';
@@ -42,11 +43,11 @@ class _AccountScreenState extends State<AccountScreen> {
                   } else if (state is AccountFailureState) {
                     return Center(
                       child: Text(
-                        'Fail: ${state.message}',
+                        S.current.fail(state.message),
                       ),
                     );
                   }
-                  return Container();
+                  return const Loading();
                 },
               )
             : const AccountNotLoginWidget(),

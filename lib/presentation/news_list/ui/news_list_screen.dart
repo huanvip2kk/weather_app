@@ -45,7 +45,7 @@ class NewsListScreen extends StatelessWidget {
                   } else if (state is NewsListFailureState) {
                     return Center(
                       child: Text(
-                        'Fail: ${state.message}',
+                        S.current.fail(state.message),
                       ),
                     );
                   }

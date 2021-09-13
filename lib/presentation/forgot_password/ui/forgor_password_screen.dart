@@ -35,7 +35,7 @@ class ForgotPasswordScreen extends StatelessWidget {
             } else if (state is ForgotPasswordFailureState) {
               return Center(
                 child: Text(
-                  'Fail: ${state.message}',
+                  S.current.fail(state.message),
                 ),
               );
             }

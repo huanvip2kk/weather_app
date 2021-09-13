@@ -21,9 +21,13 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m0(text) => "Choosed ${text}";
 
-  static String m1(userName) => "Hello ${userName}";
+  static String m1(error) => "Fail: ${error}";
 
-  static String m2(error) => "Signup fail: ${error}";
+  static String m2(userName) => "Hello ${userName}";
+
+  static String m3(error) => "Login fail: ${error}";
+
+  static String m4(error) => "Signup fail: ${error}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -73,11 +77,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "emailAlreadyInUse":
             MessageLookupByLibrary.simpleMessage("Email already in use"),
         "english": MessageLookupByLibrary.simpleMessage("English"),
+        "fail": m1,
         "favoritesList": MessageLookupByLibrary.simpleMessage("Favorites list"),
         "forgotPassword":
             MessageLookupByLibrary.simpleMessage("Forgot password"),
         "gallery": MessageLookupByLibrary.simpleMessage("Gallery"),
-        "hello": m1,
+        "hello": m2,
         "home": MessageLookupByLibrary.simpleMessage("Home"),
         "humidity": MessageLookupByLibrary.simpleMessage("Humidity"),
         "imperial": MessageLookupByLibrary.simpleMessage("Imperial"),
@@ -86,7 +91,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Invalid phone number"),
         "loading": MessageLookupByLibrary.simpleMessage("Loading..."),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
-        "loginFail": MessageLookupByLibrary.simpleMessage("Login fail"),
+        "loginFail": m3,
         "loginNow": MessageLookupByLibrary.simpleMessage("Login now"),
         "loginQuote":
             MessageLookupByLibrary.simpleMessage("Login with your email"),
@@ -122,7 +127,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "setting": MessageLookupByLibrary.simpleMessage("Settings"),
         "signOut": MessageLookupByLibrary.simpleMessage("Sign out"),
         "signUp": MessageLookupByLibrary.simpleMessage("Signup"),
-        "signupFail": m2,
+        "signupFail": m4,
         "signupQuote":
             MessageLookupByLibrary.simpleMessage("Create your account"),
         "signupSuccess": MessageLookupByLibrary.simpleMessage(
