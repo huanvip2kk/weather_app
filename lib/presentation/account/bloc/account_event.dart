@@ -4,14 +4,18 @@ abstract class AccountEvent {}
 
 class AccountLoadEvent extends AccountEvent {}
 
-class AccountChangeEvent extends AccountEvent {
+class AccountChangeUserNameEvent extends AccountEvent {
   final String userName;
-  final String email;
+
+  AccountChangeUserNameEvent({
+    required this.userName,
+  });
+}
+
+class AccountChangeUserPhotoEvent extends AccountEvent {
   final XFile photoURL;
 
-  AccountChangeEvent({
-    required this.userName,
-    required this.email,
-    required this.photoURL
+  AccountChangeUserPhotoEvent({
+    required this.photoURL,
   });
 }

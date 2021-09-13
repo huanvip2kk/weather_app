@@ -1,27 +1,42 @@
 import 'package:flutter/material.dart';
-import '../../../config/app_text_style.dart';
-import '../method/sized_box_10h.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-Column currentColumnWidget({
-  required String title,
-  value,
-  unit,
-}) =>
-    Column(
+import '../../../config/app_text_style.dart';
+
+
+class CurrentColumnWidget extends StatelessWidget {
+  const CurrentColumnWidget({
+    Key? key,
+    required this.title,
+    required this.value,
+    required this.unit,
+  }) : super(key: key);
+
+  final String title, unit,value;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
       children: [
         Text(
           title,
         ),
-        sizedBox10h(),
+        SizedBox(
+          height: 10.h,
+        ),
         Text(
-          value,
+          value.toString(),
           style: AppTextStyle.fontSize14.copyWith(
             fontWeight: FontWeight.w500,
           ),
         ),
-        sizedBox10h(),
+        SizedBox(
+          height: 10.h,
+        ),
         Text(
           unit,
         ),
       ],
     );
+  }
+}

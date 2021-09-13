@@ -21,13 +21,12 @@ class ApiRepoImpl {
       required double lon,
       required String key,
       required String lang,
-      required String units}) async {
+      }) async {
     final weatherResponse = await getWeatherApi!.getWeather(
       lat,
       lon,
       key,
       lang,
-      units,
     );
     return weatherResponse;
   }

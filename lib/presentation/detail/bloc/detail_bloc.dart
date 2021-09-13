@@ -1,6 +1,9 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 import '../../../data/model/detail/detail_model.dart';
 import '../../../data/reposistory/api_repo_impl.dart';
+import '../../../data/utils/cloud_firestore_services/favorites_database_service.dart';
 
 part 'detail_event.dart';
 
@@ -14,25 +17,52 @@ class DetailBloc extends Bloc<DetailEvent, DetailState> {
   @override
   Stream<DetailState> mapEventToState(DetailEvent event) async* {
     if (event is DetailLoadEvent) {
-      try {
-        print(event.woeid);
-        final response = await apiRepoImpl.getDetail(
-            woeid: event.woeid,
-        );
+      yield* _mapDetailLoadEventToState(
+        detailLoadEvent: event,
+      );
+    } else if (event is DetailFavoriteButtonPressedEvent) {
+      yield* _mapDetailFavoriteButtonPressedEventToState(
+        detailFavoriteButtonPressedEvent: event,
+      );
+    }
+  }
 
-        final DetailModel detailModel = response;
+  Stream<DetailState> _mapDetailLoadEventToState({
+    required DetailLoadEvent detailLoadEvent,
+  }) async* {
+    yield DetailLoadingState();
+    try {
+      final response = await apiRepoImpl.getDetail(
+        woeid: detailLoadEvent.woeid.toString(),
+      );
 
-        // final response = await Dio().get(
-        //     'https://www.metaweather.com/api/location/search/?query='+event.cityName,
-        // );
-        //
-        // print(response);
-        // final DetailModel locationModel = DetailModel.fromJson(response.data);
+      final DetailModel detailModel = response;
 
-        yield DetailLoadedState(detailModel: detailModel,);
-      } catch (e) {
-        yield DetailFailureState(message: e.toString());
-      }
+      yield DetailLoadedState(
+        detailModel: detailModel,
+      );
+    } catch (error) {
+      yield DetailFailureState(
+        message: error.toString(),
+      );
+    }
+  }
+
+  Stream<DetailState> _mapDetailFavoriteButtonPressedEventToState({
+    required DetailFavoriteButtonPressedEvent detailFavoriteButtonPressedEvent,
+  }) async* {
+    try {
+      await favorite.favoriteUpdate(
+        uid: FirebaseAuth.instance.currentUser!.uid,
+        locationName: detailFavoriteButtonPressedEvent.locationName!,
+        favorite: detailFavoriteButtonPressedEvent.favorite!,
+        woeid: detailFavoriteButtonPressedEvent.woeid!,
+        docID: detailFavoriteButtonPressedEvent.docID!,
+      );
+    } catch (e) {
+      yield DetailFailureState(
+        message: e.toString(),
+      );
     }
   }
 }

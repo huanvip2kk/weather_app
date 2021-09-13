@@ -1,18 +1,23 @@
 part of 'search_bloc.dart';
 
-abstract class SearchState{}
+abstract class SearchState {}
 
-class SearchInitState extends SearchState{}
-class SearchLoadedState extends SearchState{
+class SearchInitState extends SearchState {}
 
+class SearchResultState extends SearchState {
+  final List<LocationModel>? locationModel;
+  final List<FavoritesModel>? favoritesModel;
+
+  SearchResultState({
+    this.locationModel,
+    this.favoritesModel,
+  });
 }
-class SearchResultState extends SearchState{
-  final List<LocationModel> locationModel;
 
-  SearchResultState({required this.locationModel});
-}
-class SearchLoadingState extends SearchState{}
-class SearchFailureState extends SearchState{
+class SearchLoadingState extends SearchState {}
+
+class SearchFailureState extends SearchState {
   String message;
+
   SearchFailureState({required this.message});
 }

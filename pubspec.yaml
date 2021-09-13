@@ -21,53 +21,50 @@ environment:
   sdk: ">=2.12.0 <3.0.0"
 
 dependencies:
-
-
-
-
   bloc: ^7.0.0
+  build_runner: ^2.1.1
+  cloud_firestore: ^2.5.0
+  convex_bottom_bar: ^3.0.0
+  cupertino_icons: ^1.0.2
   dio: ^4.0.0
   easy_localization: ^3.0.0
-  fluttertoast: ^8.0.8
-  flutter_screenutil: ^5.0.0+2
+  firebase_analytics: ^8.3.0
   firebase_auth: ^3.0.1
-  fluro: ^2.0.3
-  firebase_core:
-  firebase_analytics:
+  firebase_core: ^1.5.0
+  firebase_storage: ^10.0.1
+  fl_chart: ^0.40.0
   flutter:
     sdk: flutter
-  flutter_bloc:
-  google_sign_in:
-  font_awesome_flutter:
-  flutter_spinkit: ^5.0.0
+  flutter_facebook_auth: ^3.5.0
+  flutter_lints: ^1.0.4
+  flutter_local_notifications: ^8.1.1+2
   flutter_localizations:
     sdk: flutter
-
-  firebase_storage: ^10.0.1
-  image_picker: ^0.8.3+2
+  flutter_screenutil: ^5.0.0+2
+  flutter_spinkit: ^5.0.0
   flutter_svg: ^0.22.0
-
-  # The following adds the Cupertino Icons font to your application.
-  # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^1.0.2
-  device_preview: ^0.7.4
-  flutter_facebook_auth: ^3.5.0
+  fluttertoast: ^8.0.8
+  font_awesome_flutter: ^9.1.0
   geolocator: ^7.4.0
+  google_sign_in: ^5.0.7
+  image_picker: ^0.8.3+2
   intl: ^0.17.0
-  convex_bottom_bar: ^3.0.0
-  json_annotation:
+  path: ^1.8.0
+  shared_preferences: ^2.0.7
   syncfusion_flutter_charts: ^19.2.56
-  cloud_firestore: ^2.5.0
+  marquee: ^2.2.0
+#  html_editor_enhanced: ^2.2.0+1-dev.1
 
 dev_dependencies:
+  device_preview: ^0.7.4
+  flutter_bloc:
+  flutter_gen_runner:
   flutter_test:
     sdk: flutter
-
-  build_runner: any
-  retrofit_generator: any
-  flutter_lints: ^1.0.4
-  flutter_gen_runner:
+  json_annotation:
   json_serializable:
+  retrofit_generator:
+
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -82,10 +79,10 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-     - assets/translations/en-US.json
-     - assets/translations/vi-VN.json
-     - assets/images/
-     - assets/svg_images/
+    - assets/translations/en-US.json
+    - assets/translations/vi-VN.json
+    - assets/images/
+    - assets/svg_images/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

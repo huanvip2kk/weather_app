@@ -10,13 +10,12 @@ part 'get_weather_api.g.dart';
 abstract class GetWeatherApi {
   factory GetWeatherApi(Dio dio) = _GetWeatherApi;
 
-  @GET('/weather?lat={lat}&lon={lon}&appid={key}&lang={lang}&units={units}')
+  @GET('/weather?lat={lat}&lon={lon}&appid={key}&lang={lang}&units=metric')
   Future<WeatherModel> getWeather(
     @Path('lat') double lat,
     @Path('lon') double lon,
       @Path('key') String key,
       @Path('lang') String lang,
-      @Path('units') String units,
   );
 
 

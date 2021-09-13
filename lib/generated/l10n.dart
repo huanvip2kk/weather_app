@@ -280,13 +280,13 @@ class S {
     );
   }
 
-  /// `Signup fail`
-  String get signupFail {
+  /// `Signup fail: {error}`
+  String signupFail(Object error) {
     return Intl.message(
-      'Signup fail',
+      'Signup fail: $error',
       name: 'signupFail',
       desc: '',
-      args: [],
+      args: [error],
     );
   }
 
@@ -360,13 +360,13 @@ class S {
     );
   }
 
-  /// `Hello`
-  String get hello {
+  /// `Hello {userName}`
+  String hello(Object userName) {
     return Intl.message(
-      'Hello',
+      'Hello $userName',
       name: 'hello',
       desc: '',
-      args: [],
+      args: [userName],
     );
   }
 
@@ -410,13 +410,13 @@ class S {
     );
   }
 
-  /// `Choosed`
-  String get choosed {
+  /// `Choosed {text}`
+  String choosed(Object text) {
     return Intl.message(
-      'Choosed',
+      'Choosed $text',
       name: 'choosed',
       desc: '',
-      args: [],
+      args: [text],
     );
   }
 
@@ -665,6 +665,316 @@ class S {
     return Intl.message(
       'User not verify email',
       name: 'userNotVerify',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Favorites list`
+  String get favoritesList {
+    return Intl.message(
+      'Favorites list',
+      name: 'favoritesList',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Delete all`
+  String get deleteAll {
+    return Intl.message(
+      'Delete all',
+      name: 'deleteAll',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No data`
+  String get noData {
+    return Intl.message(
+      'No data',
+      name: 'noData',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Loading...`
+  String get loading {
+    return Intl.message(
+      'Loading...',
+      name: 'loading',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Settings`
+  String get setting {
+    return Intl.message(
+      'Settings',
+      name: 'setting',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `News`
+  String get news {
+    return Intl.message(
+      'News',
+      name: 'news',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add news`
+  String get addNews {
+    return Intl.message(
+      'Add news',
+      name: 'addNews',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Account management`
+  String get accountManagement {
+    return Intl.message(
+      'Account management',
+      name: 'accountManagement',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add`
+  String get add {
+    return Intl.message(
+      'Add',
+      name: 'add',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No image selected`
+  String get noImageSelected {
+    return Intl.message(
+      'No image selected',
+      name: 'noImageSelected',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Title`
+  String get title {
+    return Intl.message(
+      'Title',
+      name: 'title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Brief`
+  String get brief {
+    return Intl.message(
+      'Brief',
+      name: 'brief',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Content`
+  String get content {
+    return Intl.message(
+      'Content',
+      name: 'content',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Choose thumbnail`
+  String get chooseThumbnail {
+    return Intl.message(
+      'Choose thumbnail',
+      name: 'chooseThumbnail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Choose images`
+  String get chooseImages {
+    return Intl.message(
+      'Choose images',
+      name: 'chooseImages',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Update news`
+  String get updateNews {
+    return Intl.message(
+      'Update news',
+      name: 'updateNews',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `News management`
+  String get newsManagement {
+    return Intl.message(
+      'News management',
+      name: 'newsManagement',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Delete`
+  String get delete {
+    return Intl.message(
+      'Delete',
+      name: 'delete',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Are you sure?`
+  String get areYouSure {
+    return Intl.message(
+      'Are you sure?',
+      name: 'areYouSure',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Edit`
+  String get edit {
+    return Intl.message(
+      'Edit',
+      name: 'edit',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Permission`
+  String get permission {
+    return Intl.message(
+      'Permission',
+      name: 'permission',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Active`
+  String get active {
+    return Intl.message(
+      'Active',
+      name: 'active',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Admin`
+  String get admin {
+    return Intl.message(
+      'Admin',
+      name: 'admin',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `User`
+  String get user {
+    return Intl.message(
+      'User',
+      name: 'user',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Activated`
+  String get activated {
+    return Intl.message(
+      'Activated',
+      name: 'activated',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Deactivated`
+  String get deActivated {
+    return Intl.message(
+      'Deactivated',
+      name: 'deActivated',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Change permission`
+  String get changePermission {
+    return Intl.message(
+      'Change permission',
+      name: 'changePermission',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `User not active`
+  String get userNotActive {
+    return Intl.message(
+      'User not active',
+      name: 'userNotActive',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add user`
+  String get addUser {
+    return Intl.message(
+      'Add user',
+      name: 'addUser',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Metric`
+  String get metric {
+    return Intl.message(
+      'Metric',
+      name: 'metric',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Imperial`
+  String get imperial {
+    return Intl.message(
+      'Imperial',
+      name: 'imperial',
       desc: '',
       args: [],
     );

@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
+import '../../../config/app_colors.dart';
 
 class HeaderCurvedContainer extends CustomPainter {
   const HeaderCurvedContainer({
-    required this.customColor,
+   this.customColor,
   });
 
-  final Color customColor;
+  final Color? customColor;
 
   @override
   void paint(Canvas canvas, Size size) {
-    final Paint paint = Paint()..color = customColor;
+    final Paint paint = Paint()..color = customColor ?? AppColors.primaryColor;
     final Path path = Path()
       ..relativeLineTo(0, 150)
       ..quadraticBezierTo(size.width / 2, 225, size.width, 150)

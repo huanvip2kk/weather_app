@@ -1,11 +1,14 @@
 import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../../config/app_colors.dart';
 import '../../../generated/l10n.dart';
-import '../../account/ui/account_screen.dart';
-import '../../home/ui/home_screen.dart';
-import '../../search/ui/search_screen.dart';
+import '../../account/accout_route.dart';
+import '../../home/home_screen_route.dart';
+import '../../news_list/news_list_route.dart';
+import '../../search/search_route.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
@@ -19,9 +22,10 @@ class _MainScreenState extends State<MainScreen>
   late TabController _tabController;
 
   final tabs = [
-    const HomeScreen(),
-    SearchScreen(),
-    const AccountScreen(),
+    HomeScreenRoute.route,
+    SearchScreenRoute.route,
+    NewsListScreenRoute.route,
+    AccountScreenRoute.route,
   ];
 
   @override
@@ -37,30 +41,37 @@ class _MainScreenState extends State<MainScreen>
   }
 
   @override
-  Widget build(BuildContext context) => Scaffold(
-        body: DefaultTabController(
-          length: tabs.length,
-          child: TabBarView(controller: _tabController, children: tabs),
-        ),
-        bottomNavigationBar: ConvexAppBar(
-          backgroundColor: AppColors.kPrimaryColor,
-          style: TabStyle.flip,
-          items: [
-            TabItem(
-              icon: Icons.home,
-              title: S.current.home,
-            ),
-            TabItem(
-              icon: Icons.search,
-              title: S.current.search,
-            ),
-            TabItem(
-              icon: Icons.person,
-              title: S.current.account,
-            ),
-          ],
-          initialActiveIndex: 0,
-          controller: _tabController,
-        ),
-      );
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: DefaultTabController(
+        length: tabs.length,
+        child: TabBarView(controller: _tabController, children: tabs),
+      ),
+      bottomNavigationBar: ConvexAppBar(
+        height: 50.h,
+        backgroundColor: AppColors.primaryColor,
+        style: TabStyle.flip,
+        items: [
+          TabItem(
+            icon: Icons.home,
+            title: S.current.home,
+          ),
+          TabItem(
+            icon: Icons.search,
+            title: S.current.search,
+          ),
+          TabItem(
+            icon: FontAwesomeIcons.newspaper,
+            title: S.current.news,
+          ),
+          TabItem(
+            icon: Icons.person,
+            title: S.current.account,
+          ),
+        ],
+        initialActiveIndex: 0,
+        controller: _tabController,
+      ),
+    );
+  }
 }

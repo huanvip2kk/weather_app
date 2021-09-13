@@ -16,7 +16,7 @@ class _GetWeatherApi implements GetWeatherApi {
   String? baseUrl;
 
   @override
-  Future<WeatherModel> getWeather(lat, lon, key, lang, units) async {
+  Future<WeatherModel> getWeather(lat, lon, key, lang) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _data = <String, dynamic>{};
@@ -24,7 +24,7 @@ class _GetWeatherApi implements GetWeatherApi {
         _setStreamType<WeatherModel>(Options(
                 method: 'GET', headers: <String, dynamic>{}, extra: _extra)
             .compose(_dio.options,
-                '/weather?lat=$lat&lon=$lon&appid=$key&lang=$lang&units=$units',
+                '/weather?lat=$lat&lon=$lon&appid=$key&lang=$lang&units=metric',
                 queryParameters: queryParameters, data: _data)
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = WeatherModel.fromJson(_result.data!);

@@ -2,20 +2,6 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'detail_model.g.dart';
 
-enum WeatherCondition {
-  snow,
-  sleet,
-  hail,
-  thunderstorm,
-  heavyRain,
-  lightRain,
-  showers,
-  heavyCloud,
-  lightCloud,
-  clear,
-  unknown
-}
-
 @JsonSerializable()
 class DetailModel {
   // ignore: non_constant_identifier_names
@@ -30,79 +16,46 @@ class DetailModel {
     this.consolidated_weather,
     this.parent,
     this.title,
-      //this.condition,
   );
 
   Map<String, dynamic> toJson() => _$DetailModelToJson(this);
-
-  // static WeatherCondition _mapStringToWeatherCondition(String input) {
-  //   WeatherCondition state;
-  //   switch (input) {
-  //     case 'sn':
-  //       state = WeatherCondition.snow;
-  //       break;
-  //     case 'sl':
-  //       state = WeatherCondition.sleet;
-  //       break;
-  //     case 'h':
-  //       state = WeatherCondition.hail;
-  //       break;
-  //     case 't':
-  //       state = WeatherCondition.thunderstorm;
-  //       break;
-  //     case 'hr':
-  //       state = WeatherCondition.heavyRain;
-  //       break;
-  //     case 'lr':
-  //       state = WeatherCondition.lightRain;
-  //       break;
-  //     case 's':
-  //       state = WeatherCondition.showers;
-  //       break;
-  //     case 'hc':
-  //       state = WeatherCondition.heavyCloud;
-  //       break;
-  //     case 'lc':
-  //       state = WeatherCondition.lightCloud;
-  //       break;
-  //     case 'c':
-  //       state = WeatherCondition.clear;
-  //       break;
-  //     default:
-  //       state = WeatherCondition.unknown;
-  //   }
-  //   return state;
-  // }
-
 }
 
 @JsonSerializable()
 class ConsolidatedWeather {
-  // ignore: non_constant_identifier_names
-  final String weather_state_name;
-  // ignore: non_constant_identifier_names
-  final String applicable_date;
-  // ignore: non_constant_identifier_names
-  final double min_temp;
-  // ignore: non_constant_identifier_names
-  final double max_temp;
-  // ignore: non_constant_identifier_names
-  final double the_temp;
-  // ignore: non_constant_identifier_names
-  final double wind_speed;
-  // ignore: non_constant_identifier_names
-  final double air_pressure;
+  @JsonKey(name: 'weather_state_name')
+  final String weatherStateName;
+
+  @JsonKey(name: 'applicable_date')
+  final String applicableDate;
+
+  @JsonKey(name: 'min_temp')
+  final double minTemp;
+
+  @JsonKey(name: 'max_temp')
+  final double maxTemp;
+
+  @JsonKey(name: 'the_temp')
+  final double theTemp;
+
+  @JsonKey(name: 'wind_speed')
+  final double windSpeed;
+
+  @JsonKey(name: 'air_pressure')
+  final double airPressure;
+
   final double humidity;
 
-  ConsolidatedWeather(
-      this.weather_state_name,
-      this.applicable_date,
-      this.min_temp,
-      this.max_temp,
-      this.the_temp,
-      this.wind_speed,
-      this.air_pressure,
-      this.humidity);
+  ConsolidatedWeather({
+    required this.airPressure,
+    required this.applicableDate,
+    required this.maxTemp,
+    required this.minTemp,
+    required this.theTemp,
+    required this.weatherStateName,
+    required this.windSpeed,
+    required this.humidity,
+  });
 
   factory ConsolidatedWeather.fromJson(Map<String, dynamic> json) =>
       _$ConsolidatedWeatherFromJson(json);
@@ -114,7 +67,7 @@ class ConsolidatedWeather {
 class Parent {
   final String title;
 
-  Parent(this.title);
+  Parent({required this.title});
 
   factory Parent.fromJson(Map<String, dynamic> json) => _$ParentFromJson(json);
 

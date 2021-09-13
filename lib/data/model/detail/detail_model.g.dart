@@ -25,33 +25,33 @@ Map<String, dynamic> _$DetailModelToJson(DetailModel instance) =>
 
 ConsolidatedWeather _$ConsolidatedWeatherFromJson(Map<String, dynamic> json) {
   return ConsolidatedWeather(
-    json['weather_state_name'] as String,
-    json['applicable_date'] as String,
-    (json['min_temp'] as num).toDouble(),
-    (json['max_temp'] as num).toDouble(),
-    (json['the_temp'] as num).toDouble(),
-    (json['wind_speed'] as num).toDouble(),
-    (json['air_pressure'] as num).toDouble(),
-    (json['humidity'] as num).toDouble(),
+    airPressure: (json['air_pressure'] as num).toDouble(),
+    applicableDate: json['applicable_date'] as String,
+    maxTemp: (json['max_temp'] as num).toDouble(),
+    minTemp: (json['min_temp'] as num).toDouble(),
+    theTemp: (json['the_temp'] as num).toDouble(),
+    weatherStateName: json['weather_state_name'] as String,
+    windSpeed: (json['wind_speed'] as num).toDouble(),
+    humidity: (json['humidity'] as num).toDouble(),
   );
 }
 
 Map<String, dynamic> _$ConsolidatedWeatherToJson(
         ConsolidatedWeather instance) =>
     <String, dynamic>{
-      'weather_state_name': instance.weather_state_name,
-      'applicable_date': instance.applicable_date,
-      'min_temp': instance.min_temp,
-      'max_temp': instance.max_temp,
-      'the_temp': instance.the_temp,
-      'wind_speed': instance.wind_speed,
-      'air_pressure': instance.air_pressure,
+      'weather_state_name': instance.weatherStateName,
+      'applicable_date': instance.applicableDate,
+      'min_temp': instance.minTemp,
+      'max_temp': instance.maxTemp,
+      'the_temp': instance.theTemp,
+      'wind_speed': instance.windSpeed,
+      'air_pressure': instance.airPressure,
       'humidity': instance.humidity,
     };
 
 Parent _$ParentFromJson(Map<String, dynamic> json) {
   return Parent(
-    json['title'] as String,
+    title: json['title'] as String,
   );
 }
 

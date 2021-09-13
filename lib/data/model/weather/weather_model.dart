@@ -34,14 +34,17 @@ class Weather{
 class Main {
 
   final double temp;
-  // ignore: non_constant_identifier_names
-  final double temp_min;
-  // ignore: non_constant_identifier_names
-  final double temp_max;
+
+  @JsonKey(name: 'temp_min')
+  final double tempMin;
+
+  @JsonKey(name: 'temp_max')
+  final double tempMax;
+
   final double pressure;
   final double humidity;
 
-  Main(this.temp, this.temp_min, this.temp_max, this.pressure, this.humidity);
+  Main({required this.temp,required this.tempMax,required this.tempMin,required this.pressure,required this.humidity});
 
   factory Main.fromJson(Map<String, dynamic> json) => _$MainFromJson(json);
   Map<String, dynamic> toJson() => _$MainToJson(this);
